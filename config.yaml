@@ -1,0 +1,41 @@
+exclude:
+  - node_modules/
+  - .git/
+  - dist/
+  - build/
+  - __pycache__/
+  - "*.pyc"
+  - "*.lock"
+  - "*.min.js"
+  - .env
+  - .summaries/
+
+supported_extensions:
+  - .py
+  - .js
+  - .ts
+  - .go
+  - .java
+  - .rs
+  - .cpp
+  - .c
+  - .h
+  - .rb
+  - .php
+  - .yaml
+  - .yml
+  - .toml
+  - .json
+  - .dockerfile
+  - .tf
+  - .sh
+  - .sql
+  - .md # only read as docs context, not summarized as code
+
+output_dir: .summaries
+
+rate_limit:
+  base_delay_seconds: 1
+  max_retries: 5
+
+context_reserve_ratio: 0.3 # reserve 30% of context window for LLM output
