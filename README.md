@@ -4,56 +4,28 @@ Lazy to summarize your code? Use this tool!!!
 
 ## Requirements
 
-<<<<<<< HEAD
-- [] Single agent, deterministic bottom-up traversal
-- [] One model for everything (via OpenRouter)
-- [] Summaries stored in .summaries/ folder mirroring repo structure
-- [] Supports code and config files only
-- [] Exclude list for node_modules, .git, dist, etc.
-- [] Simple sleep(x) rate limiting with incremental backoff on 429
-- [] Evaluation: you manually grade on a few repos
+- [x] Single agent, deterministic bottom-up traversal
+- [x] One model for everything. Set in .env.
+- [x] Summaries stored in .summaries/ folder mirroring repo structure
+- [x] Supports code and config files only
+- [x] Exclude list for node_modules, .git, dist, etc. -> config.yaml
+- [x] Simple sleep(x) rate limiting with incremental backoff on 429
+- [ ] Evaluation: you manually grade on a few repos
+
+## Eval
+
+- [ ] Test on simple repo max-depth should be 3 or less.
+- [ ] Test on bigger repo max-depth > 6
 
 ## Future
 
-- [] context_prev carries flat project overview + k layers of parent context
-- [] No auto-update on commits — manual runs + targeted PR updates later
+- [ ] context_prev carries flat project overview + k layers of parent context
+- [ ] No auto-update on commits — manual runs + targeted PR updates later
 
 ## Algorithm
-
-dfs(directory: str, parent_summary: str) -> str:
-files = list_files(directory) #folders and file names
-start_context = load_documentation_context(files)
-
-    file_summaries = []
-    #only files other than documentation files
-    for file in files:
-        file_summaries.append(f"{file} summary: llm.chat(parent_summary + get_file(file))")
-
-    folder_summary_init = llm.chat(start_context, files, parent_summary, file_summaries) #takes context of parent summary, current file summaries, file and folder names, documentation context.
-
-    child_summaries = []
-    #only folders
-    for folder in files:
-        child_summary.append(f"{folder} summary: {dfs(folder, folder_summary_init)}")
-
-    folder_summary_final = llm.chat(folder_summary_init, child_summaries)
-
-    return folder_summary_final
-
-main():
-files = list_files()
-start_context = load_documentation_context(files) #Get context from architecture.md/readme.md/documentation.md for root node.
-
-    root_summary = llm.chat(start_context)
-    #load root_summary into system prompt.
-
-    llm.system_prompt(root_summary)
-
-    dfs(/root, root_summary)
-
+```
 dfs(directory, parent_context, root_context, config):
-files, folders = list_and_filter(directory, config.exclude)
-
+    files, folders = list_and_filter(directory, config.exclude)
     docs_context = load_docs_if_exist(files)  # README, etc.
 
     # One LLM call for all files in this folder
@@ -89,14 +61,4 @@ files, folders = list_and_filter(directory, config.exclude)
 
     write_summary(directory, final_summary)
     return final_summary
-=======
-- [ ] Single agent, deterministic bottom-up traversal
-- [ ] One model for everything (via OpenRouter)
-- [ ] Summaries stored in .summaries/ folder mirroring repo structure
-- [ ] Supports code and config files only
-- [ ] Exclude list for node_modules, .git, dist, etc.
-- [ ] context_prev carries flat project overview + k layers of parent context
-- [ ] Simple sleep(x) rate limiting with incremental backoff on 429
-- [ ] No auto-update on commits — manual runs + targeted PR updates later
-- [ ] Evaluation: you manually grade on a few repos
->>>>>>> e1a7d5cbced1520149fac2dac0e392a89636319c
+```
