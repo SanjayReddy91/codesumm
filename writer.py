@@ -19,7 +19,8 @@ def write_summary(repo_root: str, directory: str, output_dir: str, content: str)
     output_path = os.path.join(repo_root, output_dir, rel, "summary.md")
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
+    content = content.strip()
+    
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(content)
 
