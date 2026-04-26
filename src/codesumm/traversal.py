@@ -1,10 +1,10 @@
 import os
-from llm import LLMClient
-from config import Config
-from file_utils import list_contents, filter_supported_files, read_all_files
-from summarizer import load_docs_context, summarize_files, generate_scope_hint, generate_final_summary
-from writer import write_summary
-from logger import get_logger
+from codesumm.llm import LLMClient
+from codesumm.config import Config
+from codesumm.file_utils import list_contents, filter_supported_files, read_all_files
+from codesumm.summarizer import load_docs_context, summarize_files, generate_scope_hint, generate_final_summary
+from codesumm.writer import write_summary
+from codesumm.logger import get_logger
 
 log = get_logger(__name__)
 

@@ -2,8 +2,8 @@ import os
 import time
 import openai
 from dotenv import load_dotenv
-from config import RateLimitConfig
-from logger import get_logger
+from codesumm.config import RateLimitConfig
+from codesumm.logger import get_logger
 
 log = get_logger(__name__)
 

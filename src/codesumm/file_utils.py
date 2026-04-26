@@ -1,6 +1,6 @@
 import os
 import pathspec
-from logger import get_logger
+from codesumm.logger import get_logger
 
 log = get_logger(__name__)
 

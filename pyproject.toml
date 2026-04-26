@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codesumm"
+version = "0.1.0"
+description = "A code summarizer agent that generates summary.md for every folder in your repo and writes to .summaries/ at your repo root. BYO API key and endpoint."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Sanjay Reddy Kodidela", email = "gamerzdamnyt1234@gmail.com"}
+]
+keywords = ["ai", "code", "summarizer", "llm", "documentation", "ai agent"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Documentation",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0",
+    "pathspec>=0.11.0",
+]
+
+[project.scripts]
+codesumm = "codesumm.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/SanjayReddy91/codesumm"
+Repository = "https://github.com/SanjayReddy91/codesumm"
+Issues = "https://github.com/SanjayReddy91/codesumm/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

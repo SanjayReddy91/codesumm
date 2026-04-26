@@ -3,18 +3,14 @@ import sys
 
 
 def get_logger(name: str) -> logging.Logger:
-    """
-    Returns a logger for the given module name.
-    All loggers share the same handler/format configured on the root logger.
-    Call setup_logging() once at startup before calling get_logger().
-    """
-    return logging.getLogger(name)
+    """Returns a logger under the codesumm namespace."""
+    return logging.getLogger(f"codesumm.{name}" if not name.startswith("codesumm") else name)
 
 
 def setup_logging(level: int = logging.INFO) -> None:
     """
     Configures the root logger with a consistent format.
-    Should be called once in main.py before anything else.
+    Must be called once at startup before any logging happens.
 
     Format: [TIMESTAMP] [LEVEL    ] [MODULE         ] message
     """
@@ -33,3 +29,12 @@ def setup_logging(level: int = logging.INFO) -> None:
     # Avoid duplicate handlers if setup_logging is called more than once
     if not root.handlers:
         root.addHandler(handler)
+
+
+def set_log_level(level: str) -> None:
+    """Sets the log level for all loggers. Accepts a string like 'DEBUG', 'INFO', etc."""
+    numeric_level = getattr(logging, level.upper(), logging.INFO)
+    root = logging.getLogger()
+    root.setLevel(numeric_level)
+    for handler in root.handlers:
+        handler.setLevel(numeric_level)

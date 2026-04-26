@@ -1,7 +1,7 @@
 import os
-from llm import LLMClient
-from file_utils import read_file
-from prompts import (
+from codesumm.llm import LLMClient
+from codesumm.file_utils import read_file
+from codesumm.prompts import (
     file_summary_system,
     file_summary_user,
     batch_merge_system,
@@ -11,7 +11,7 @@ from prompts import (
     final_summary_system,
     final_summary_user,
 )
-from logger import get_logger
+from codesumm.logger import get_logger
 
 log = get_logger(__name__)
 

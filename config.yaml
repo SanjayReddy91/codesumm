@@ -9,6 +9,7 @@ exclude:
   - "*.min.js"
   - .env
   - .summaries/
+  - venv/
 
 supported_extensions:
   - .py
