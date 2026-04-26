@@ -152,3 +152,8 @@ Options:
 ## License
 
 MIT
+
+## Future Additions
+
+- [ ] Context limit of model can be set in config and CLI Arguments.
+- [ ] Summarize only for specific branch.
