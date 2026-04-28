@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="assets/codesumm_wide.png" alt="codesumm logo" width="600">
+</p>
 # codesumm
 
 AI-powered code summarizer that generates a `summary.md` for every folder in your repository. Uses an LLM to understand your codebase and produce structured, human-readable summaries so that new contributors (and future you) can navigate the project without reading every file.
